@@ -1,1 +1,1 @@
-# airflow-exercises
+# easy-airflow
