@@ -18,7 +18,7 @@ default_args = {
 }
 
 dag = DAG('hello_world', default_args=default_args, schedule_interval=timedelta(minutes=1),
-          start_date=datetime.now() - timedelta(minutes=1))
+          start_date=datetime.now().replace(second=0, microsecond=0) - timedelta(minutes=1))
 
 # t1, t2 and t3 are examples of tasks created by instantiating operators
 t1 = BashOperator(
