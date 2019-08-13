@@ -3,6 +3,8 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 
+from common import airflow_utils
+
 default_args = {
     'owner': 'sigalhu',
     'depends_on_past': False,
@@ -18,7 +20,7 @@ default_args = {
 }
 
 dag = DAG('hello_world', default_args=default_args, schedule_interval=timedelta(minutes=1),
-          start_date=datetime.now().replace(second=0, microsecond=0) - timedelta(minutes=1))
+          start_date=airflow_utils.start_date(timedelta(minutes=1)))
 
 t1 = BashOperator(
     task_id='print_date',
