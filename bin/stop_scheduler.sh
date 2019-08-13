@@ -9,5 +9,3 @@ while [[ -f "airflow-scheduler.pid" ]]; do
     sleep 1
 done
 echo "Succeed to stop airflow-scheduler!"
-
-ps -ef | grep 'airflow' | grep 'scheduler' | awk '{print $2}' | xargs kill -9
