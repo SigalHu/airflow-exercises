@@ -10,6 +10,7 @@ LOG_DIR="${PROJECT_DIR}/logs"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export AIRFLOW_HOME="${PROJECT_DIR}/config"
+export PYTHONPATH="${PROJECT_DIR}"
 
 source activate
 conda activate airflow
