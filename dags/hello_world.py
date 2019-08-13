@@ -17,7 +17,7 @@ default_args = {
     # 'end_date': datetime(2016, 1, 1),
 }
 
-dag = DAG('hello_world', default_args=default_args, schedule_interval="*/1 * * * *",
+dag = DAG('hello_world', default_args=default_args, schedule_interval=timedelta(minutes=1),
           start_date=datetime.now() - timedelta(minutes=1))
 
 # t1, t2 and t3 are examples of tasks created by instantiating operators
