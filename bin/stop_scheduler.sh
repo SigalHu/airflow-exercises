@@ -2,10 +2,16 @@
 
 cd `dirname $0`
 BIN_DIR=`pwd`
+PID_FILE="airflow-scheduler.pid"
 
-kill `cat airflow-scheduler.pid`
-while [[ -f "airflow-scheduler.pid" ]]; do
+if [[ ! -f "${PID_FILE}" || -z `pgrep -F "${PID_FILE}"` ]]; then
+    echo "Can not find the process of airflow-scheduler!"
+    exit 0
+fi
+
+kill `cat "${PID_FILE}"`
+while [[ -n `pgrep -F "${PID_FILE}"` ]]; do
     echo "Wait for stopping airflow-scheduler..."
-    sleep 1
+    sleep 5
 done
 echo "Succeed to stop airflow-scheduler!"
