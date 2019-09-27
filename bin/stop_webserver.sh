@@ -10,7 +10,7 @@ if [[ ! -f "${PID_FILE}" || -z `pgrep -F "${PID_FILE}"` ]]; then
 fi
 
 kill `cat "${PID_FILE}"`
-while [[ -n `pgrep -F "${PID_FILE}"` ]]; do
+while [[ -f "${PID_FILE}" && -n `pgrep -F "${PID_FILE}"` ]]; do
     echo "Wait for stopping airflow-webserver..."
     sleep 5
 done
