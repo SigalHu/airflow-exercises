@@ -16,7 +16,7 @@ conda create -n airflow python=3.6
 pip install apache-airflow
 ```
 
-3. 启动 easy-airflow，访问 [localhost:8080](localhost:8080)
+3. 启动 easy-airflow，访问 [localhost:8899](localhost:8899)
 ```bash
 ./bin/start_webserver.sh
 ./bin/start_scheduler.sh
